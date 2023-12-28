@@ -10,27 +10,16 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      // axios
-      //   .get("http://localhost:3001/api/workouts", { mode: "cors" })
-      //   .then((res) => {
-      //     // const json = wait response.json();
-      //     res.dispatch({ type: "SET_WORKOUTS", payload: json });
-      //   })
-      //   .catch((err) => {
-      //     console.log("Error from ShowBookList");
-      //   });
       try {
-        const response = await fetch("http://localhost:3001/api/workouts", {
-          mode: "cors",
-        });
+        const response = await fetch("/api/workouts");
+        console.log(response);
         const json = await response.json();
-
+        console.log(json);
         if (response.ok) {
           dispatch({ type: "SET_WORKOUTS", payload: json });
         }
-        console.log(json);
-      } catch (e) {
-        console.error(e);
+      } catch (error) {
+        console.error(error);
       }
     };
 
