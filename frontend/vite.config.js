@@ -7,8 +7,8 @@ export default defineConfig({
   server: {
     port: 3001,
     proxy: {
-      "/api/workouts": {
-        target: "http://localhost:3001/",
+      "/api/": {
+        target: "http://localhost:3010/",
         changeOrigin: true,
       },
     },
